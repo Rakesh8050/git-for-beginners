@@ -35,7 +35,7 @@ Follow the README instructions or use the provided command list to practice Git 
 
 A detailed walkthrough and live demonstration of this guide will be available soon.
 
-Live Web Page (Coming Soon)
+Live Web Page**(https://rakesh8050.github.io/git-for-beginners/)**
 
 ----
 
