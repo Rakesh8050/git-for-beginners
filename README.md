@@ -1,6 +1,7 @@
-Git for Beginners – Version Control Guide
+# Git for Beginners – Version Control Guide
 
-Overview
+## Overview
+
 This repository provides a complete, step-by-step guide to using Git version control for managing files and projects efficiently.
 It covers all the essential commands and workflow — from initializing a repository to committing changes and pushing updates to GitHub.
 
@@ -13,7 +14,8 @@ The included command references make it simple to track, commit, and synchronize
 
 ----
 
-Contents
+## Contents
+
 - Introduction to Git and Version Control
 - Step-by-Step Setup Guide
 - Commonly Used Commands Explained
@@ -22,18 +24,21 @@ Contents
 
 ----
 
-Usage
+## Usage
+
 This repository serves as a learning reference and a practical example of Git workflow.
 Follow the README instructions or use the provided command list to practice Git operations on your own projects.
 
 ----
 
-Website
+## Website
+
 A detailed walkthrough and live demonstration of this guide will be available soon.
 
 Live Web Page (Coming Soon)
 
 ----
 
-License
+## License
+
 This project is licensed under the MIT License — see the LICENSE file for details.
