@@ -1,242 +1,209 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.1">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git Version Control Guide</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      background-color: #f8faff;
+      color: #222;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #004aad;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    nav {
+      background-color: #0066cc;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      color: #004aad;
+    }
+    code {
+      background: #eef3ff;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    pre {
+      background: #eef3ff;
+      padding: 12px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #e3f0ff;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #004aad;
+      color: white;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Git Version Control Guide&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: #f5f7fa;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #333;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Navigation bar */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: #0056b3;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px 30px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav h1 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.4em;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav ul {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>list-style: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav ul li {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: inline;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav ul li a {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 500;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav ul li a:hover {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: underline;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Main content */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 950px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 40px auto;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 30px 40px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>h2, h3 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #0056b3;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>pre {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #eef2f7;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-left: 4px solid #0056b3;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow-x: auto;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>code {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #eef2f7;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 2px 5px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95em;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>table {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-collapse: collapse;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>th, td {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #ddd;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: left;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>th {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: #0056b3;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>footer {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: #0056b3;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 50px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>hr {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-top: 1px solid #ccc;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 30px 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Git Version Control&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#overview"&gt;Overview&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#setup"&gt;Setup&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#upload"&gt;Upload&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#commands"&gt;Commands&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#workflow"&gt;Workflow&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>Git is a distributed version control system used to track changes in files and collaborate efficiently.<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">      </span>It allows users to maintain multiple versions of their work, restore previous states, and manage contributions easily.</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>This guide explains how to set up Git, connect to GitHub, and push files to a remote repository using the command line.</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;hr&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 id="setup"&gt;Initial Setup&lt;/h2&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;1. Initialize Git in your local project folder&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;pre&gt;&lt;code&gt;git init&lt;/code&gt;&lt;/pre&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;2. Configure Git user details&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;pre&gt;&lt;code&gt;git config --global user.name "Your Name"</p>
-<p class="p1">git config --global user.email "youremail@example.com"&lt;/code&gt;&lt;/pre&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;3. Connect your folder to GitHub&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;pre&gt;&lt;code&gt;git remote add origin https://github.com/&amp;lt;your-username&amp;gt;/&amp;lt;repository-name&amp;gt;.git&lt;/code&gt;&lt;/pre&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;4. Generate a Personal Access Token&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Since GitHub no longer accepts passwords for Git operations, you must use a Personal Access Token (PAT).&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;ol&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Go to &lt;a href="https://github.com/settings/tokens" target="_blank"&gt;GitHub Tokens&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Select &lt;b&gt;Fine-grained personal access token&lt;/b&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Set repository access to &lt;b&gt;All repositories&lt;/b&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Enable:</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;Contents: Read and Write&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;Metadata: Read-only&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ol&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;hr&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 id="upload"&gt;Steps to Upload Files to GitHub&lt;/h2&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;1. Check current status&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;pre&gt;&lt;code&gt;git status&lt;/code&gt;&lt;/pre&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;2. Add files to the staging area&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;pre&gt;&lt;code&gt;git add filename.txt</p>
-<p class="p1">git add .&lt;/code&gt;&lt;/pre&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;3. Commit changes&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;pre&gt;&lt;code&gt;git commit -m "Added new files and updates"&lt;/code&gt;&lt;/pre&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;4. Push to GitHub&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;pre&gt;&lt;code&gt;git push -u origin main&lt;/code&gt;&lt;/pre&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;hr&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 id="commands"&gt;Commonly Used Git Commands&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;table&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;&lt;th&gt;Command&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;&lt;td&gt;git status&lt;/td&gt;&lt;td&gt;Check current state of files&lt;/td&gt;&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;&lt;td&gt;git add .&lt;/td&gt;&lt;td&gt;Stage all new and modified files&lt;/td&gt;&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;&lt;td&gt;git commit -m "message"&lt;/td&gt;&lt;td&gt;Save staged changes locally&lt;/td&gt;&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;&lt;td&gt;git push&lt;/td&gt;&lt;td&gt;Upload commits to GitHub&lt;/td&gt;&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;&lt;td&gt;git pull&lt;/td&gt;&lt;td&gt;Fetch and merge updates from GitHub&lt;/td&gt;&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;&lt;td&gt;git log&lt;/td&gt;&lt;td&gt;Display commit history&lt;/td&gt;&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;&lt;td&gt;git revert &amp;lt;commit-id&amp;gt;&lt;/td&gt;&lt;td&gt;Undo a specific commit&lt;/td&gt;&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;&lt;td&gt;git branch&lt;/td&gt;&lt;td&gt;List all branches&lt;/td&gt;&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;&lt;td&gt;git checkout &amp;lt;branch&amp;gt;&lt;/td&gt;&lt;td&gt;Switch between branches&lt;/td&gt;&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/table&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;hr&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 id="workflow"&gt;Example Workflow&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;pre&gt;&lt;code&gt;# View current changes</p>
-<p class="p1">git status</p>
-<p class="p2"><br></p>
-<p class="p1"># Stage all modified files</p>
-<p class="p1">git add .</p>
-<p class="p2"><br></p>
-<p class="p1"># Commit with a message</p>
-<p class="p1">git commit -m "Updated project files"</p>
-<p class="p2"><br></p>
-<p class="p1"># Push to GitHub</p>
-<p class="p1">git push&lt;/code&gt;&lt;/pre&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Notes&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;“Everything up to date” means no new changes to push.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Always follow this sequence: &lt;b&gt;add → commit → push&lt;/b&gt;.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;One token can be used for all repositories if created with “All repositories” access.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Run &lt;code&gt;git pull&lt;/code&gt; before pushing to stay synced with GitHub.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;© 2025 Git Version Control Guide | Designed for Beginners&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <header>
+    <h1>Git Version Control Guide</h1>
+    <p>A Professional Step-by-Step Reference for Beginners</p>
+  </header>
+
+  <nav>
+    <a href="#overview">Overview</a>
+    <a href="#setup">Setup</a>
+    <a href="#upload">Uploading Files</a>
+    <a href="#commands">Commands</a>
+    <a href="#workflow">Workflow</a>
+    <a href="#troubleshooting">Troubleshooting</a>
+  </nav>
+
+  <main>
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>
+        Git is a distributed version control system used to track changes in files and collaborate effectively.
+        It allows you to maintain multiple versions, restore previous states, and manage updates between local and remote repositories.
+      </p>
+      <p>
+        This guide provides a complete, step-by-step workflow for initializing repositories, configuring Git, adding files, committing changes, and pushing updates to GitHub.
+      </p>
+    </section>
+
+    <section id="setup">
+      <h2>Initial Setup</h2>
+      <h3>1. Initialize Git in your project folder</h3>
+      <pre><code>git init</code></pre>
+
+      <h3>2. Configure your user credentials</h3>
+      <pre><code>
+git config --global user.name "Your Name"
+git config --global user.email "youremail@example.com"
+      </code></pre>
+
+      <h3>3. Connect to your remote repository</h3>
+      <pre><code>git remote add origin https://github.com/&lt;username&gt;/&lt;repository&gt;.git</code></pre>
+
+      <h3>4. Create a Personal Access Token (PAT)</h3>
+      <p>
+        Since GitHub no longer allows password-based authentication, you must use a Personal Access Token for command-line operations.
+      </p>
+      <ol>
+        <li>Go to <a href="https://github.com/settings/tokens" target="_blank">GitHub Tokens</a></li>
+        <li>Generate a new fine-grained token with repository access</li>
+        <li>Enable <b>Contents (Read and Write)</b> and <b>Metadata (Read-only)</b></li>
+        <li>Copy the token securely and use it as your password when pushing</li>
+      </ol>
+    </section>
+
+    <section id="upload">
+      <h2>Uploading Files to GitHub</h2>
+      <h3>Step 1: Check status</h3>
+      <pre><code>git status</code></pre>
+
+      <h3>Step 2: Add files to staging</h3>
+      <pre><code>git add .</code></pre>
+
+      <h3>Step 3: Commit changes</h3>
+      <pre><code>git commit -m "Added project files"</code></pre>
+
+      <h3>Step 4: Push to GitHub</h3>
+      <pre><code>git push -u origin main</code></pre>
+    </section>
+
+    <section id="commands">
+      <h2>Commonly Used Git Commands</h2>
+      <table>
+        <tr><th>Command</th><th>Description</th></tr>
+        <tr><td><code>git status</code></td><td>Check working directory and staging area status</td></tr>
+        <tr><td><code>git add .</code></td><td>Stage all new and modified files</td></tr>
+        <tr><td><code>git commit -m "message"</code></td><td>Save staged changes locally</td></tr>
+        <tr><td><code>git push</code></td><td>Upload commits to GitHub</td></tr>
+        <tr><td><code>git pull</code></td><td>Fetch and merge updates from GitHub</td></tr>
+        <tr><td><code>git log</code></td><td>View commit history</td></tr>
+        <tr><td><code>git branch</code></td><td>List all branches</td></tr>
+        <tr><td><code>git checkout &lt;branch&gt;</code></td><td>Switch to another branch</td></tr>
+      </table>
+    </section>
+
+    <section id="workflow">
+      <h2>Example Workflow</h2>
+      <pre><code>
+git status
+git add .
+git commit -m "Updated files"
+git push
+      </code></pre>
+      <p>
+        Always follow the sequence: <b>add → commit → push</b> for smooth synchronization between your local and remote repositories.
+      </p>
+    </section>
+
+    <section id="troubleshooting">
+      <h2>Troubleshooting Common Git Errors</h2>
+      <p><b>Error Message:</b></p>
+      <pre><code>! [rejected] main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/&lt;user&gt;/&lt;repo&gt;.git'</code></pre>
+      <p><b>Cause:</b> The remote branch has new commits not present locally.</p>
+
+      <h3>Fix:</h3>
+      <pre><code>
+# Fetch remote updates
+git fetch origin
+
+# Rebase local commits on top of remote
+git pull origin main --rebase
+
+# Push updated branch
+git push origin main
+      </code></pre>
+
+      <p>
+        If the issue persists and you’re certain your local version is correct:
+      </p>
+      <pre><code>git push origin main --force</code></pre>
+      <p><b>Note:</b> Use <code>--force</code> cautiously; it overwrites the remote branch.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Git Version Control Guide | Created by Rakesh Kumar</p>
+  </footer>
 </body>
 </html>
