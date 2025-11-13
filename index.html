@@ -3,204 +3,251 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Git Version Control Guide</title>
+  <title>My Complete Git Learning Journey | Git Version Control Guide</title>
   <style>
     body {
       font-family: "Segoe UI", Arial, sans-serif;
       margin: 0;
-      background-color: #f8faff;
+      background-color: #f5f9ff;
       color: #222;
-      line-height: 1.6;
+      line-height: 1.7;
     }
+
+    /* Header */
     header {
       background-color: #004aad;
       color: white;
-      padding: 20px 0;
       text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 30px 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
+
+    header h1 {
+      font-size: 2em;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.1em;
+      margin-top: 5px;
+      opacity: 0.9;
+    }
+
+    /* Navigation */
     nav {
       background-color: #0066cc;
       display: flex;
       justify-content: center;
       gap: 20px;
-      padding: 10px 0;
+      padding: 12px;
     }
+
     nav a {
       color: white;
       text-decoration: none;
       font-weight: 500;
+      transition: 0.3s;
     }
+
     nav a:hover {
       text-decoration: underline;
+      opacity: 0.85;
     }
-    main {
-      max-width: 900px;
+
+    /* Container */
+    .container {
+      max-width: 1000px;
       margin: 40px auto;
-      background-color: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: white;
+      padding: 40px 50px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     }
-    h1, h2, h3 {
+
+    h2 {
       color: #004aad;
+      border-bottom: 2px solid #e2e9f7;
+      padding-bottom: 5px;
+      margin-top: 40px;
     }
+
+    h3 {
+      color: #0066cc;
+      margin-top: 25px;
+    }
+
+    pre {
+      background: #eef4ff;
+      padding: 10px 15px;
+      border-left: 4px solid #004aad;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.95em;
+    }
+
     code {
-      background: #eef3ff;
-      padding: 2px 5px;
+      background: #eef4ff;
+      padding: 3px 6px;
       border-radius: 4px;
       font-family: monospace;
     }
-    pre {
-      background: #eef3ff;
-      padding: 12px;
-      border-radius: 8px;
-      overflow-x: auto;
+
+    ul, ol {
+      margin-left: 20px;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
+
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 30px 0;
     }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #e3f0ff;
-    }
+
     footer {
-      text-align: center;
-      padding: 20px;
       background-color: #004aad;
       color: white;
+      text-align: center;
+      padding: 20px 10px;
       margin-top: 40px;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Git Version Control Guide</h1>
-    <p>A Professional Step-by-Step Reference for Beginners</p>
+    <h1>My Complete Git Learning Journey</h1>
+    <p>A Step-by-Step Documentation of My Experience Learning Git and GitHub</p>
   </header>
 
   <nav>
-    <a href="#overview">Overview</a>
+    <a href="#intro">Introduction</a>
     <a href="#setup">Setup</a>
-    <a href="#upload">Uploading Files</a>
-    <a href="#commands">Commands</a>
     <a href="#workflow">Workflow</a>
-    <a href="#troubleshooting">Troubleshooting</a>
+    <a href="#errors">Troubleshooting</a>
+    <a href="#result">Result</a>
   </nav>
 
-  <main>
-    <section id="overview">
+  <div class="container">
+    <section id="intro">
       <h2>Overview</h2>
       <p>
-        Git is a distributed version control system used to track changes in files and collaborate effectively.
-        It allows you to maintain multiple versions, restore previous states, and manage updates between local and remote repositories.
-      </p>
-      <p>
-        This guide provides a complete, step-by-step workflow for initializing repositories, configuring Git, adding files, committing changes, and pushing updates to GitHub.
+        This page documents my complete learning journey with Git — from basic installation to creating and publishing a professional Git guide as a web page.
+        It includes every command, concept, and problem encountered during the process, along with how each was resolved.
       </p>
     </section>
 
     <section id="setup">
-      <h2>Initial Setup</h2>
-      <h3>1. Initialize Git in your project folder</h3>
+      <h2>Learning Steps and Key Milestones</h2>
+
+      <h3>1. Checking if Git Was Installed</h3>
+      <pre><code>git --version</code></pre>
+      <p>Verified installation and understood Git as a version control tool.</p>
+
+      <h3>2. Learning Basic Terminal Commands</h3>
+      <pre><code>cd &lt;folder_name&gt;
+ls -a</code></pre>
+      <p>Learned how to navigate directories and understood the working directory concept.</p>
+
+      <h3>3. Creating and Initializing Repositories</h3>
       <pre><code>git init</code></pre>
+      <p>Created a new repository and learned about the <code>.git</code> folder.</p>
 
-      <h3>2. Configure your user credentials</h3>
-      <pre><code>
-git config --global user.name "Your Name"
-git config --global user.email "youremail@example.com"
-      </code></pre>
+      <h3>4. Adding and Committing Files</h3>
+      <pre><code>git add .
+git commit -m "Initial commit"</code></pre>
+      <p>Understood staging and committing changes in Git.</p>
 
-      <h3>3. Connect to your remote repository</h3>
-      <pre><code>git remote add origin https://github.com/&lt;username&gt;/&lt;repository&gt;.git</code></pre>
-
-      <h3>4. Create a Personal Access Token (PAT)</h3>
-      <p>
-        Since GitHub no longer allows password-based authentication, you must use a Personal Access Token for command-line operations.
-      </p>
-      <ol>
-        <li>Go to <a href="https://github.com/settings/tokens" target="_blank">GitHub Tokens</a></li>
-        <li>Generate a new fine-grained token with repository access</li>
-        <li>Enable <b>Contents (Read and Write)</b> and <b>Metadata (Read-only)</b></li>
-        <li>Copy the token securely and use it as your password when pushing</li>
-      </ol>
-    </section>
-
-    <section id="upload">
-      <h2>Uploading Files to GitHub</h2>
-      <h3>Step 1: Check status</h3>
+      <h3>5. Checking Repository Status</h3>
       <pre><code>git status</code></pre>
+      <p>Learned to interpret “untracked files,” “changes to be committed,” and “working tree clean.”</p>
 
-      <h3>Step 2: Add files to staging</h3>
-      <pre><code>git add .</code></pre>
+      <h3>6. Viewing Commit History</h3>
+      <pre><code>git log</code></pre>
 
-      <h3>Step 3: Commit changes</h3>
-      <pre><code>git commit -m "Added project files"</code></pre>
+      <h3>7. Reverting and Resolving Conflicts</h3>
+      <pre><code>git revert &lt;commit-id&gt;
+git add .
+git revert --continue</code></pre>
+      <p>Faced merge conflicts and learned how to manually fix them.</p>
 
-      <h3>Step 4: Push to GitHub</h3>
-      <pre><code>git push -u origin main</code></pre>
-    </section>
+      <h3>8. Connecting to GitHub</h3>
+      <pre><code>git remote add origin https://github.com/Rakesh8050/demo.git
+git push -u origin master</code></pre>
 
-    <section id="commands">
-      <h2>Commonly Used Git Commands</h2>
-      <table>
-        <tr><th>Command</th><th>Description</th></tr>
-        <tr><td><code>git status</code></td><td>Check working directory and staging area status</td></tr>
-        <tr><td><code>git add .</code></td><td>Stage all new and modified files</td></tr>
-        <tr><td><code>git commit -m "message"</code></td><td>Save staged changes locally</td></tr>
-        <tr><td><code>git push</code></td><td>Upload commits to GitHub</td></tr>
-        <tr><td><code>git pull</code></td><td>Fetch and merge updates from GitHub</td></tr>
-        <tr><td><code>git log</code></td><td>View commit history</td></tr>
-        <tr><td><code>git branch</code></td><td>List all branches</td></tr>
-        <tr><td><code>git checkout &lt;branch&gt;</code></td><td>Switch to another branch</td></tr>
-      </table>
+      <h3>9. Authentication with Personal Access Token</h3>
+      <p>Learned that GitHub no longer supports passwords and created a Personal Access Token (PAT) for secure access.</p>
+
+      <h3>10. Switching to a New Repository</h3>
+      <pre><code>git remote remove origin
+git remote add origin https://github.com/Rakesh8050/git-for-beginners.git</code></pre>
+
+      <h3>11. Handling Branch Confusion (main vs master)</h3>
+      <pre><code>git branch
+git push -u origin main</code></pre>
+
+      <h3>12. Fixing Push Rejections</h3>
+      <pre><code>git fetch origin
+git pull origin main --rebase
+git push origin main</code></pre>
+
+      <h3>13. Writing a Professional README.md</h3>
+      <p>Structured and formatted documentation covering setup, configuration, workflow, and troubleshooting.</p>
+
+      <h3>14. Building a Web Page (index.html)</h3>
+      <p>Converted the README into a professional webpage with a blue-white theme and navigation bar.</p>
     </section>
 
     <section id="workflow">
-      <h2>Example Workflow</h2>
+      <h2>Complete Git Workflow Learned</h2>
       <pre><code>
-git status
+# Initialize repository
+git init
+
+# Stage files
 git add .
-git commit -m "Updated files"
-git push
+
+# Commit changes
+git commit -m "message"
+
+# Push to GitHub
+git push -u origin main
       </code></pre>
-      <p>
-        Always follow the sequence: <b>add → commit → push</b> for smooth synchronization between your local and remote repositories.
-      </p>
+
+      <p>Also learned advanced commands like <code>git pull</code>, <code>git revert</code>, and <code>git reset</code>.</p>
     </section>
 
-    <section id="troubleshooting">
+    <section id="errors">
       <h2>Troubleshooting Common Git Errors</h2>
-      <p><b>Error Message:</b></p>
-      <pre><code>! [rejected] main -> main (fetch first)
-error: failed to push some refs to 'https://github.com/&lt;user&gt;/&lt;repo&gt;.git'</code></pre>
-      <p><b>Cause:</b> The remote branch has new commits not present locally.</p>
 
-      <h3>Fix:</h3>
-      <pre><code>
-# Fetch remote updates
-git fetch origin
-
-# Rebase local commits on top of remote
+      <h3>Push Rejection (fetch first)</h3>
+      <pre><code>! [rejected] main -> main (fetch first)</code></pre>
+      <p>Resolved by syncing local and remote branches:</p>
+      <pre><code>git fetch origin
 git pull origin main --rebase
+git push origin main</code></pre>
 
-# Push updated branch
-git push origin main
-      </code></pre>
+      <h3>Branch Mismatch (master vs main)</h3>
+      <pre><code>error: src refspec master does not match any</code></pre>
+      <p>Resolved by pushing to the correct branch:</p>
+      <pre><code>git push -u origin main</code></pre>
+
+      <h3>Invalid Password or Token Error</h3>
+      <pre><code>Invalid username or token. Password authentication is not supported.</code></pre>
+      <p>Created a Personal Access Token (PAT) and used it instead of a password.</p>
+    </section>
+
+    <section id="result">
+      <h2>Final Outcome</h2>
+      <ul>
+        <li>Successfully created a full Git + GitHub workflow</li>
+        <li>Understood all key commands and branching strategies</li>
+        <li>Built and deployed a professional guide webpage</li>
+        <li>Documented all learning challenges and solutions</li>
+      </ul>
 
       <p>
-        If the issue persists and you’re certain your local version is correct:
+        This repository — <b>git-for-beginners</b> — now serves as a complete reference for understanding Git version control from setup to professional documentation.
       </p>
-      <pre><code>git push origin main --force</code></pre>
-      <p><b>Note:</b> Use <code>--force</code> cautiously; it overwrites the remote branch.</p>
     </section>
-  </main>
+  </div>
 
   <footer>
     <p>© 2025 Git Version Control Guide | Created by Rakesh Kumar</p>
