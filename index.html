@@ -115,16 +115,17 @@
 <body>
   <header>
     <h1>My Complete Git Learning Journey</h1>
-    <p>A Detailed Documentation of My Step-by-Step Git and GitHub Learning Process</p>
+    <p>A Comprehensive Step-by-Step Guide to My Git and GitHub Learning Experience</p>
   </header>
 
   <nav>
     <a href="#overview">Overview</a>
-    <a href="#installation">Setup</a>
-    <a href="#commands">Git Commands</a>
+    <a href="#setup">Setup</a>
+    <a href="#commands">Commands</a>
+    <a href="#revert">Revert & Conflicts</a>
+    <a href="#remote">GitHub & Tokens</a>
     <a href="#errors">Troubleshooting</a>
     <a href="#docs">Documentation</a>
-    <a href="#web">Web Project</a>
     <a href="#result">Result</a>
   </nav>
 
@@ -132,173 +133,155 @@
     <section id="overview">
       <h2>Overview</h2>
       <p>
-        This page documents my complete journey of learning Git and GitHub — starting from basic terminal usage to building a
-        professional web-based documentation of version control. It includes every step, command, and problem I encountered,
-        along with how I resolved each one.
+        This page documents my complete Git learning process — from installation to building a professional webpage. 
+        It includes every small detail, command, and challenge I faced while understanding Git and GitHub workflow. 
+        I explored concepts like initialization, commits, reverts, authentication tokens, branch management, and documentation.
       </p>
     </section>
 
-    <section id="installation">
-      <h2>1. Installation and Setup</h2>
-
+    <section id="setup">
+      <h2>1. Setup and Installation</h2>
       <h3>Checking if Git is Installed</h3>
       <pre><code>git --version</code></pre>
-      <p>Confirmed that Git was available on my Mac. If not, it could be installed via Xcode or Homebrew.</p>
+      <p>Verified that Git was installed on my Mac system.</p>
 
       <h3>Learning Basic Terminal Commands</h3>
       <pre><code>cd &lt;folder_name&gt;
 ls -a</code></pre>
-      <p>Learned to navigate folders and understand the concept of the working directory and hidden <code>.git</code> folder.</p>
+      <p>Learned to navigate folders, list hidden files, and understand the difference between working directory and Git repository.</p>
 
-      <h3>Initializing a Repository</h3>
+      <h3>Creating a Local Git Repository</h3>
       <pre><code>git init</code></pre>
-      <p>Created a new local repository. Learned that this command should only be used once per project to avoid reinitialization.</p>
+      <p>Initialized Git for my project folder, creating a hidden <code>.git</code> directory for version tracking.</p>
 
-      <h3>Configuring Git User Details</h3>
+      <h3>Configuring User Details</h3>
       <pre><code>git config --global user.name "Rakesh8050"
 git config --global user.email "125812375+Rakesh8050@users.noreply.github.com"</code></pre>
-      <p>Set up author information that appears in each commit.</p>
+
+      <h3>Creating and Tracking Files</h3>
+      <pre><code>git add .
+git commit -m "Added c1, c2, and c3"</code></pre>
+      <p>Understood the concepts of <b>staging (add)</b> and <b>committing</b> changes.</p>
     </section>
 
     <section id="commands">
-      <h2>2. Core Git Commands and Workflow</h2>
+      <h2>2. Exploring Git Commands</h2>
+      <h3>Checking Status and Logs</h3>
+      <pre><code>git status
+git log</code></pre>
+      <p>Learned how to check modified files, commit history, and author details.</p>
 
-      <h3>Adding and Committing Files</h3>
-      <pre><code>git add .
-git commit -m "Added c1, c2, and c3"</code></pre>
-      <p>Learned how staging and committing work. Understood that “add” moves files to staging and “commit” saves them permanently.</p>
-
-      <h3>Checking Repository Status</h3>
-      <pre><code>git status</code></pre>
-      <p>Interpreted untracked, modified, and committed files.</p>
-
-      <h3>Viewing Commit History</h3>
-      <pre><code>git log</code></pre>
-      <p>Understood commit IDs, timestamps, and author details.</p>
-
-      <h3>Reverting and Resetting Commits</h3>
-      <pre><code>git revert &lt;commit-id&gt;</code></pre>
-      <p>Used to safely undo a previous commit by creating a new one.</p>
-
-      <h3>Exploring Differences</h3>
+      <h3>Comparing Changes</h3>
       <pre><code>git diff
 git diff c3.txt</code></pre>
-      <p>Compared changes between commits and file versions using plus/minus indicators.</p>
 
-      <h3>Branching and Switching</h3>
-      <pre><code>git branch
-git checkout &lt;branch&gt;</code></pre>
+      <h3>Viewing Branches</h3>
+      <pre><code>git branch</code></pre>
 
-      <h3>Complete Workflow Summary</h3>
+      <h3>Switching Branches</h3>
+      <pre><code>git checkout &lt;branch&gt;</code></pre>
+
+      <h3>Typical Git Workflow</h3>
       <pre><code>
-# Initialize repository
-git init
-
-# Stage files
+git status
 git add .
-
-# Commit changes
-git commit -m "message"
-
-# Push to GitHub
-git push -u origin main
+git commit -m "Commit message"
+git push
       </code></pre>
     </section>
 
-    <section id="errors">
-      <h2>3. Troubleshooting and Common Issues</h2>
+    <section id="revert">
+      <h2>3. Reverting, Resetting, and Fixing Conflicts</h2>
+      <h3>Undoing Mistakes</h3>
+      <pre><code>git revert &lt;commit-id&gt;</code></pre>
+      <p>Learned the difference between <code>git revert</code>, <code>git reset</code>, and <code>git checkout</code>.</p>
 
-      <h3>1. Merge Conflicts</h3>
+      <h3>Fixing Merge Conflicts</h3>
       <pre><code>CONFLICT (modify/delete): c3.txt deleted in parent and modified in HEAD</code></pre>
-      <p>Resolved manually by editing files, adding with <code>git add</code>, and continuing the revert process with <code>git revert --continue</code>.</p>
+      <p>Resolved manually, marked the resolution with <code>git add</code>, and continued with <code>git revert --continue</code>.</p>
+    </section>
 
-      <h3>2. “Invalid Username or Token” Error</h3>
-      <p>Learned that GitHub no longer supports password-based pushes. Created a <b>Personal Access Token (PAT)</b> with:</p>
+    <section id="remote">
+      <h2>4. Working with GitHub and Remotes</h2>
+      <h3>Adding Remote Repository</h3>
+      <pre><code>git remote add origin https://github.com/Rakesh8050/demo.git
+git push -u origin master</code></pre>
+
+      <h3>Switching to a New Repository</h3>
+      <pre><code>git remote remove origin
+git remote add origin https://github.com/Rakesh8050/git-for-beginners.git</code></pre>
+
+      <h3>Branch Mismatch (main vs master)</h3>
+      <pre><code>error: src refspec master does not match any
+git branch
+git push -u origin main</code></pre>
+
+      <h3>Authentication with Personal Access Token (PAT)</h3>
+      <p>Created a fine-grained PAT on GitHub with:</p>
       <ul>
-        <li>All repositories access</li>
-        <li>Contents: Read & Write</li>
-        <li>Metadata: Read-only</li>
+        <li>Repository access: <b>All repositories</b></li>
+        <li>Permissions: Contents (Read & Write), Metadata (Read-only)</li>
       </ul>
+      <p>Used this token instead of a password for pushing changes.</p>
 
-      <h3>3. Push Rejection (Fetch First)</h3>
+      <h3>Understanding Tokens</h3>
+      <p>Learned that a single token with "All repositories" access can be reused for all repositories.</p>
+    </section>
+
+    <section id="errors">
+      <h2>5. Troubleshooting and Errors</h2>
+
+      <h3>Push Rejection (fetch first)</h3>
       <pre><code>! [rejected] main -> main (fetch first)</code></pre>
-      <p>Resolved with:</p>
+      <p>Resolved by syncing local and remote repositories:</p>
       <pre><code>git fetch origin
 git pull origin main --rebase
 git push origin main</code></pre>
 
-      <h3>4. Branch Name Confusion (main vs master)</h3>
-      <pre><code>error: src refspec master does not match any</code></pre>
-      <p>Fixed by identifying the active branch and pushing correctly:</p>
-      <pre><code>git branch
-git push -u origin main</code></pre>
-
-      <h3>5. “Everything Up to Date” Issue</h3>
-      <p>Encountered when new files weren’t staged or committed.</p>
+      <h3>“Everything Up to Date” Issue</h3>
       <pre><code>git add .
 git commit -m "Added new file"
 git push</code></pre>
+
+      <h3>Invalid Username or Token Error</h3>
+      <pre><code>Invalid username or token. Password authentication is not supported.</code></pre>
+
+      <h3>Branch Conflicts</h3>
+      <p>Understood how to check remote status, rebase, and resolve sync issues.</p>
     </section>
 
     <section id="docs">
-      <h2>4. Documentation and Professional Writing</h2>
+      <h2>6. Documentation and Web Conversion</h2>
+      <h3>Creating Professional README.md</h3>
+      <p>Documented all commands, setup steps, troubleshooting tips, and workflow in Markdown format.</p>
 
-      <h3>Creating a README.md</h3>
-      <p>Wrote a complete Markdown file covering:</p>
+      <h3>Converting README to Webpage</h3>
+      <p>Transformed the README.md into an HTML webpage (<code>index.html</code>) using:</p>
       <ul>
-        <li>Overview</li>
-        <li>Setup and Prerequisites</li>
-        <li>Command explanations</li>
-        <li>Example workflows</li>
-        <li>Common errors and notes</li>
-      </ul>
-
-      <h3>Repository Setup</h3>
-      <pre><code>git remote remove origin
-git remote add origin https://github.com/Rakesh8050/git-for-beginners.git
-git push -u origin main</code></pre>
-      <p>Linked a new GitHub repository titled <b>git-for-beginners</b>.</p>
-    </section>
-
-    <section id="web">
-      <h2>5. Building the Git Learning Web Page</h2>
-      <p>Converted README.md content into an HTML webpage (<b>index.html</b>) featuring:</p>
-      <ul>
-        <li>Blue and white professional theme</li>
-        <li>Navigation bar for sections</li>
-        <li>Footer with credits</li>
-        <li>Code highlighting with preformatted blocks</li>
-      </ul>
-
-      <h3>Added Sections:</h3>
-      <ul>
-        <li>Overview</li>
-        <li>Setup</li>
-        <li>Uploading Files</li>
-        <li>Commands Reference</li>
-        <li>Troubleshooting</li>
-        <li>Learning Challenges and Solutions</li>
+        <li>Blue-white professional theme</li>
+        <li>Navigation bar</li>
+        <li>Header and footer</li>
+        <li>Detailed sections for each learning stage</li>
       </ul>
 
       <h3>Final Push</h3>
       <pre><code>git add index.html
 git commit -m "Added complete learning journey webpage"
 git push origin main</code></pre>
-      <p>Successfully uploaded the final web version to GitHub.</p>
     </section>
 
     <section id="result">
-      <h2>6. Final Outcome and Understanding</h2>
+      <h2>7. Final Understanding and Outcome</h2>
       <ul>
-        <li>Mastered the complete Git workflow: <code>init → add → commit → push → pull → revert</code></li>
-        <li>Understood branching, merging, and remote synchronization</li>
-        <li>Resolved real-world Git errors and merge conflicts</li>
-        <li>Created a professional README and HTML-based documentation</li>
-        <li>Built a public learning portfolio: <b>git-for-beginners</b></li>
+        <li>Mastered Git’s complete workflow: <code>init → add → commit → push → pull → revert</code></li>
+        <li>Learned branch management and remote syncing</li>
+        <li>Handled GitHub authentication using PAT</li>
+        <li>Created professional README and HTML-based documentation</li>
+        <li>Successfully built a public Git learning project: <b>git-for-beginners</b></li>
       </ul>
 
       <p>
-        This project demonstrates the end-to-end process of learning, applying, and documenting Git for version control in a professional and structured manner.
+        This project represents a complete learning journey in Git and GitHub, combining technical understanding, practical commands, troubleshooting experience, and professional documentation.
       </p>
     </section>
   </div>
